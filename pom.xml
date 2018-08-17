@@ -44,6 +44,8 @@
                 <version>1.0.1</version>
                 <configuration>
                     <payaraVersion>5.182</payaraVersion>
+                    <deployWar>true</deployWar>
+                    <!--
                     <javaCommandLineOptions>
                         <option>
                             <value>-Xdebug</value>
@@ -53,6 +55,7 @@
                             <value>dt_socket,server=y,suspend=n,address=5005</value>
                         </option>
                     </javaCommandLineOptions>
+                    -->
                     <commandLineOptions>
                         <option>
                             <key>--noCluster</key>
