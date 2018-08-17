@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>teedjay.playground</groupId>
+    <artifactId>keycloak</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>KeyCloak Playground</name>
+    <description>Project to mess around with OIDC, JWT and JEE8 using KeyCloak</description>
+    <url>https://github.com/teedjay/playground-keycloak</url>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>8.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.2.0</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>fish.payara.maven.plugins</groupId>
+                <artifactId>payara-micro-maven-plugin</artifactId>
+                <version>1.0.1</version>
+                <configuration>
+                    <payaraVersion>5.182</payaraVersion>
+                    <javaCommandLineOptions>
+                        <option>
+                            <value>-Xdebug</value>
+                        </option>
+                        <option>
+                            <key>-Xrunjdwp:transport</key>
+                            <value>dt_socket,server=y,suspend=n,address=5005</value>
+                        </option>
+                    </javaCommandLineOptions>
+                    <commandLineOptions>
+                        <option>
+                            <key>--noCluster</key>
+                            <value></value>
+                        </option>
+                    </commandLineOptions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
