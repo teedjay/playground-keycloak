@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Single Page Applicaton running in the browser</title>
 </head>
 <body>
-<h1>Single Page Applicaton is running</h1>
+<div id="app"></div>
+
+<script crossorigin src="http://ectrade.ec.evry.com/auth/js/keycloak.js"></script>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+<script>
+
+    // This demo uses the standard javascript adaptor for keycloak with config in json file
+    // https://www.keycloak.org/docs/2.5/securing_apps/topics/oidc/javascript-adapter.html
+    // Make sure to read the full page for how to refresh tokens and handle login errors.
+
+    var keycloak = Keycloak();
+
+    var loadData = function () {
+        console.log('Authorization: Bearer ' + keycloak.idToken);
+        var heading = 'Logged in as user : ' + keycloak.idTokenParsed.preferred_username;
+        ReactDOM.render(React.createElement('h2', null, heading), document.getElementById('app'));
+    };
+
+    keycloak.init({ onLoad: 'login-required', flow: 'implicit' }).success(loadData);
+
+</script>
+
 </body>
 </html>

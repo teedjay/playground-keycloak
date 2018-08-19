@@ -12,8 +12,8 @@ public class ServerSideWebApp extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("index.xhtml").forward(request, response);
-        //response.sendRedirect("index.xhtml");
+        request.getRequestDispatcher("index.html").forward(request, response);
+        //response.sendRedirect("index.html");
     }
 
 }
