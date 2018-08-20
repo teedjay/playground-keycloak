@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Swagger UI</title>
+        <link rel="stylesheet" href="swagger.css">
+    </head>
+
+    <body>
+
+        <div id="swagger-ui"></div>
+
+        <script crossorigin src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+
+        <script>
+
+        // more info here : https://github.com/sunnyagarwal008/setup-swagger-ui-in-one-page
+        // more themes here : https://github.com/ostranme/swagger-ui-themes/tree/develop/themes/3.x
+
+        const ui = SwaggerUIBundle({
+            url: "http://localhost:8080/openapi/",
+            dom_id: '#swagger-ui',
+            presets: [
+                SwaggerUIBundle.presets.apis,
+                SwaggerUIBundle.SwaggerUIStandalonePreset
+            ],
+            layout: "BaseLayout"
+        })
+        </script>
+
+    </body>
+
+</html>
