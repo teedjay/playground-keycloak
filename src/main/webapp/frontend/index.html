@@ -1,16 +1,31 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang=en>
 <head>
+    <meta charset=utf-8>
     <title>Single Page Applicaton running in the browser</title>
 </head>
 <body>
 <div id="app"></div>
+<div id="backend">Her kommer responsen fra backend api'et når du trykker på knappen</div>
+<button type="button" onclick="getSomeDataFromBackend()">Klikk her når du er logget inn</button>
 
 <script crossorigin src="http://ectrade.ec.evry.com/auth/js/keycloak.js"></script>
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 
 <script>
+
+    function getSomeDataFromBackend() {
+        var url = "http://localhost:8080/keycloak-1.0-SNAPSHOT/backend";
+        var xhr = new XMLHttpRequest();
+        var output = document.getElementById('backend');
+        xhr.open('GET', url, true);
+        xhr.setRequestHeader("Authorization", "Bearer " + keycloak.idToken);
+        xhr.addEventListener('load', function() {
+            output.innerHTML = this.responseText;
+        });
+        xhr.send(null);
+    }
 
     // This demo uses the standard javascript adaptor for keycloak with config in json file
     // https://www.keycloak.org/docs/2.5/securing_apps/topics/oidc/javascript-adapter.html

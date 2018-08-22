@@ -1,0 +1,10 @@
+{
+  "realm": "GRAS",
+  "auth-server-url": "http://ectrade.ec.evry.com/auth",
+  "ssl-required": "none",
+  "resource": "gras-innsyn-servlet",
+  "credentials": {
+    "secret": "6a985c0e-5df7-41c6-8cc9-4c47d9df4b43"
+  },
+  "confidential-port": 0
+}
