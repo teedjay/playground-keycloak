@@ -23,6 +23,12 @@ http://localhost:8080/keycloak-1.0-SNAPSHOT/serverside
 http://localhost:8080/keycloak-1.0-SNAPSHOT/swagger.html
 ```
 
+## Things to test ...
+Test out to "two legged authentication", using client service account instead of users accounts between api's.
+- [ ] Enable service account for backend client
+- [ ] Add some roles to backend client
+- [ ] Enforce service account roles in api layer
+
 ## How to manually get tokens and call services
 ```
 
