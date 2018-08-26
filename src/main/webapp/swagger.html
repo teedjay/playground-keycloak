@@ -1,34 +1,35 @@
 <!doctype html>
 <html lang=en>
 
-    <head>
-        <meta charset=utf-8>
-        <title>Swagger UI</title>
-        <link rel="stylesheet" href="swagger.css">
-    </head>
+<head>
+    <meta charset=utf-8>
+    <title>Swagger UI</title>
+    <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@3.18.1/swagger-ui.css">
+</head>
 
-    <body>
+<body>
 
-        <div id="swagger-ui"></div>
+<div id="swagger-ui"></div>
 
-        <script crossorigin src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+<script crossorigin src="https://unpkg.com/swagger-ui-dist@3.18.1/swagger-ui-standalone-preset.js"></script>
+<script crossorigin src="https://unpkg.com/swagger-ui-dist@3.18.1/swagger-ui-bundle.js"></script>
 
-        <script>
+<script>
+    const ui = SwaggerUIBundle({
+        url: "http://localhost:8080/openapi/",
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+            SwaggerUIBundle.presets.apis,
+            SwaggerUIStandalonePreset
+        ],
+        plugins: [
+            SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout"
+    })
+</script>
 
-        // more info here : https://github.com/sunnyagarwal008/setup-swagger-ui-in-one-page
-        // more themes here : https://github.com/ostranme/swagger-ui-themes/tree/develop/themes/3.x
-
-        const ui = SwaggerUIBundle({
-            url: "http://localhost:8080/openapi/",
-            dom_id: '#swagger-ui',
-            presets: [
-                SwaggerUIBundle.presets.apis,
-                SwaggerUIBundle.SwaggerUIStandalonePreset
-            ],
-            layout: "BaseLayout"
-        })
-        </script>
-
-    </body>
+</body>
 
 </html>

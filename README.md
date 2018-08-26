@@ -25,6 +25,9 @@ http://localhost:8080/keycloak-1.0-SNAPSHOT/swagger.html
 
 ## Things to test ...
 Test out to "two legged authentication", using client service account instead of users accounts between api's.
+- [x] Add Swagger UI
+- [x] Add OpenAPI security to backend-layer
+- [ ] Add OpenAPI security to api-layer 
 - [ ] Enable service account for backend client
 - [ ] Add some roles to backend client
 - [ ] Enforce service account roles in api layer
