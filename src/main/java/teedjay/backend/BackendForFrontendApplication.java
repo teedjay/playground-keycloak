@@ -15,7 +15,7 @@ import java.util.Set;
 
 @ApplicationPath("/backend")
 @OpenAPIDefinition(
-    info = @Info(title = "EVRY-SREST API", description = "EVRY implementation of DIFI's VEFA-SREST API", version = "1.0.0"),
+    info = @Info(title = "Backend4FrontendAPI", description = "This is the backend API used by the frontend", version = "1.0.0"),
     security = @SecurityRequirement(name = "bearerAuth")
 )
 @SecuritySchemes(value = {
