@@ -17,6 +17,9 @@ public class TheBackendApi {
     @Inject
     JwtDecoder jwtDecoder;
 
+    @Inject
+    AccessToken accessToken;
+
     @Context
     HttpHeaders httpHeaders;
 
@@ -27,6 +30,12 @@ public class TheBackendApi {
         String token = authorization.substring(7); // remove "Bearer " prefix
         Claims claimsFromToken = jwtDecoder.getClaimsFromToken(token);
         return new InfoStructure(claimsFromToken);
+    }
+
+    @Path("/accesstoken")
+    @GET()
+    public AccessToken getAccessToken() {
+        return accessToken;
     }
 
 }
